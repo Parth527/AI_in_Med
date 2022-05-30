@@ -24,6 +24,7 @@ def EvaluateModel(x_test, y_true, model):
     resp_acc = (TP + TN) / (TP + TN + FP + FN)  # respective overall accuracy
     acc = accuracy_score(y_true, y_pred)
     f1 = f1_score(y_true, y_pred, average='macro')
+    print(classification_report(y_true, y_pred))
 
     return acc, Se, Sp, f1, PPV, NPV, cnf_matrix
 
@@ -71,7 +72,7 @@ def get_summary(x_test, y_true, model):
     plt.show()
     plot_confusion_matrix(cm, classes, normalize=True, title='Normalized Confusion Matrix')
     plt.show()
-    print(classification_report(x_test, y_true))
+
 
 
 def Plot_Acc_and_Loss(history, x_test, y_test, model):
